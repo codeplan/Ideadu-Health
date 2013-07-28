@@ -140,6 +140,14 @@
     text-align: center;
     text-shadow: -1px -1px 1px #000000;
 }
+
+#banner .mycaption2 {
+    color: #AAAAAA;
+    font-size: .8em;
+    text-align: center;
+    text-shadow: -1px -1px 1px #000000;
+}
+
 		#banner .caption
 		{
 			background: #1e1e1e url('images/bg3.png') top left repeat-x;
