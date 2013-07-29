@@ -4,6 +4,9 @@ $con=mysqli_connect("localhost","root","12345","trial_DB");
 if($_POST) {
 	
 	$output = "";
+	$output2 = "";
+	$var=0;
+	$var2=0;
 	$mobile=$_POST["name"];
 	$blg=$_POST["bg"];
 	$pc=$_POST["zip"];
@@ -14,8 +17,9 @@ if($_POST) {
 mysqli_query($con,$sql);
 
 $sql="SELECT * FROM donors WHERE pincode=$pc or $pc-1 or $pc+1 or $pc-2 or $pc+2 or $pc-3 or $pc+3 or $pc+4 or $pc-4";
-	
-$result= mysqli_query($con,$sql);    
+//$sql2="SELECT * FROM donors WHERE bg=$blg";
+$result= mysqli_query($con,$sql);
+//$result2= mysqli_query($con,$sql2);   
 
 while($row = mysqli_fetch_array($result))
 {
@@ -23,10 +27,10 @@ while($row = mysqli_fetch_array($result))
 	if($blg==$row['bg'])
 	{
 			$var++;
-if($var==1) {
+		if($var==1) {
 
 				
-	$output .=  "<table class='bloodresult'>";
+	$output .=  "<legend>Donors available nearby your area:</legend><br><table class='bloodresult'>";
 	
 	$output .=  "<th>Donor Name</th>";
 	/* $output .= "<div class='field-right>" . $row['name'] . "</div>"; */
@@ -47,12 +51,41 @@ if($var==1) {
  }
 	
 	$output .= "</table>";
-	
-	if($var==0) 
+		if($var==0) 
 	{
- $output .= "Sorry no donor is available for your blood!";
+ $output .= "<b> Sorry no donor is available for your blood near your area!<br> We will get back to you when the Donor is available. </b>";
 	}
+	
+	/*
 
+	while($row2 = mysqli_fetch_array($result2)){
+	$var2++;		
+		if($var2==1) {
+				
+	$output2 .=  "<legend>Donors available nearby your area:</legend><br><table class='bloodresult'>";
+	
+	$output2 .=  "<th>Donor Name</th>";
+	
+
+	$output2 .=  "<th>Blood Group</th>";
+
+	$output2 .=  "<th>Contact</th>";
+
+
+}
+
+	 $output2 .= "<tr>";
+  $output2 .= "<td align='center'>" . $row2['name'] . "</td>";
+  $output2 .= "<td align='center'>" . $row2['bg'] . "</td>";
+  $output2 .= "<td align='center'>" . $row2['contact'] . "</td>";	
+		
+		}
+	$output2 .= "</table>";
+			if($var2==0) 
+	{
+ $output2 .= "<b> Sorry no donor is available for your blood!<br> We will get back to you when the Donor is available. </b>";
+	}
+*/
 }
 
 ?>
@@ -175,9 +208,10 @@ if (x==null || x==""){
 							</div>
 							<nav id="nav">
 								<ul>
-									<li class="current_page_item"><a href="index.html">HOMEPAGE</a></li>
-									<li><a href="bloodbank.html">BLOOD BANK</a></li>
+									
+									<li><a href="index.html">BLOOD BANK</a></li>
 									<li><a href="healthtips.html">HEALTH TIPS</a></li>
+									<li><a href="contactus.php">CONTACT US</a></li>
 									<li><a href="about.html">ABOUT</a></li>
 								</ul>
 							</nav>
@@ -192,7 +226,7 @@ if (x==null || x==""){
    <div class="well">    
    <?php if($_POST): ?>
    <a href="index.html" class="mycenterbutton">GO TO HOME</a> <br> <br>
-   	<?php print $output; ?>
+   	<?php print $output; echo "<br>"; print $output2;?>
    
    	<?php else: ?>
       <form id="register" name="register" onsubmit="return validateForm()" class="form-horizontal" method="post" action="">

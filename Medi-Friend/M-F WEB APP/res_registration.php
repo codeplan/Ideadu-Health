@@ -152,7 +152,7 @@ else
   if(!email.value.match(emailExp)){
    // return true;
  // }else{
-    alert("email wrong");
+    alert("Please Enter a valid email Address");
     email.focus();
     return false;
   }
@@ -184,9 +184,10 @@ if (x==null || x==""){
 							</div>
 							<nav id="nav">
 								<ul>
-									<li class="current_page_item"><a href="index.html">HOMEPAGE</a></li>
-									<li><a href="bloodbank.html">BLOOD BANK</a></li>
+									
+									<li><a href="index.html">BLOOD BANK</a></li>
 									<li><a href="healthtips.html">HEALTH TIPS</a></li>
+									<li><a href="contactus.php">CONTACT US</a></li>
 									<li><a href="about.html">ABOUT</a></li>
 								</ul>
 							</nav>
@@ -205,7 +206,7 @@ if (x==null || x==""){
    	<?php else: ?>   
    
       <form id="register" name="register" onsubmit="return validateForm()" class="form-horizontal" method="post" action="">
-		    <legend>Donor Registration</legend>		
+		    <legend><b>Donor Registration</b></legend>		
 		     <div class="control-group">
 	     <label class="control-label">Enter Your Name</label>
 			 <div class="controls">

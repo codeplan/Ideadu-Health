@@ -18,7 +18,7 @@
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-size: 14pt;
 		line-height: 1.75em;
-		color: #4c4c4c;
+		color: #0000ff;
 	}
 
 	h1,h2,h3,h4
@@ -224,7 +224,7 @@ background: -moz-linear-gradient(center top , #38C3FF, #0893CF) repeat scroll 0 
 		}
 
 
-/* Blood Rsult Table Styling Starts */
+/* Blood Result Table Styling Starts */
 
 .bloodresult th{
 			width:160px;
